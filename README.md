@@ -1,0 +1,4 @@
+tsparser
+========
+
+thread-safe parser
