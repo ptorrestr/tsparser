@@ -167,6 +167,23 @@ VisitorTraversal::analyseDeclaration
                     << std::endl;
                 transformPOD(initializedName);
             }
+            else if ( ASTQuerying::isConstType(variableType) )
+            {
+                // Clean all modifiers including const
+                SgType* baseType = variableType->stripType();
+                if ( ASTQuerying::isPodType(baseType) )
+                {
+                    std::cout << "INFO: Static const POD variable changed to"
+                        << " TLS " << std::endl;
+                    transformPOD(initializedName);
+                }
+                else 
+                {   //TODO: test this method
+                    std::cout << "WARN: Static const nonPOD variable changed"
+                        << " to TLS " << std::endl;
+                    transformClass(initializedName, variableDeclaration);
+                }
+            }
             else
             {
                 std::cout << "INFO: Static nonPOD variable changed to TLS " 
@@ -219,6 +236,7 @@ VisitorTraversal::transformReference
         ASTModifying::addExpressionBeforeReference(newReference, init);
         // mark scope as initialised
         temporalData->insertInitVariables(newReference, true);
+        std::cout << "end if" << std::endl;
     }
     // Update reference operators such as Dot operator.
     if ( ASTQuerying::isVariableReferenceInDotExpression(newReference) )

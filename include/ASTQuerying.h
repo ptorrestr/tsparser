@@ -24,6 +24,8 @@ public:
         (const SgNode*);
     static bool isPodType
         (SgType*);
+    static bool isConstType
+        (SgType*);
     static bool isPointerType
         (SgType*);
     static bool isVariableReferenceInDotExpression

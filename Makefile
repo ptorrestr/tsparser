@@ -1,7 +1,7 @@
 object:=parser
 
 # CXX or GCC
-cxx:=g++-4.4
+cxx:=g++-4.3
 cxxflags:=-g
 
 ## LOCAL DIRS
@@ -11,19 +11,19 @@ incdir:=./include
 test:= ./test
 
 # rose base
-rose_home:=/opt
+rose_home:=/opt/rose-0.9.5a-gcc-4.3
 rose_ldd:=-lrose
 rose_include:=$(rose_home)/include
 rose_lib:=$(rose_home)/lib
 
 # boost base
-boost_home:=/opt
+boost_home:=/opt/boost_1_47_0-gcc-4.3
 boost_ldd:=-lboost_filesystem -lboost_date_time -lboost_thread -lboost_program_options -lboost_regex -lboost_system -lboost_wave
 boost_include:=$(boost_home)/include
 boost_lib:=$(boost_home)/lib
 
 # java base
-java_home:=/usr/lib/jvm/java-7-openjdk
+java_home:=$(JAVA_HOME)
 java_ldd:=-ljvm
 java_lib:=$(java_home)/jre/lib/amd64/server
 

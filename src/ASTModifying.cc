@@ -64,6 +64,21 @@ ASTModifying::createVariableIntialisation
         // Create the "new" expression
         right = SageBuilder::buildNewExp( type, NULL, NULL, NULL, 0, NULL );
     }
+    else if ( isSgAssignInitializer(oldInitializer) )
+    {
+        //TODO
+        std::cout << "TODO: assign initializer" << std::endl;
+    }
+    else if ( isSgCompoundInitializer(oldInitializer) )
+    {
+        //TODO
+        std::cout << "TODO: compound initializer" << std::endl;
+    }
+    else if ( isSgDesignatedInitializer(oldInitializer) )
+    {
+        //TODO
+        std::cout << "TODO: designatedInitializer" << std::endl;
+    }
     else 
     {
         // we assume as default constructor

@@ -92,6 +92,17 @@ ASTQuerying::isPodType
 }
 
 bool
+ASTQuerying::isConstType
+(SgType* type)
+{
+    //Const type: const *
+    bool ret = false;
+    if ( SageInterface::isConstType(type) )
+        ret = true;
+    return ret;
+}
+
+bool
 ASTQuerying::isPointerType
 (SgType* type)
 {
