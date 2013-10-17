@@ -1,6 +1,6 @@
 object:=parser
 
-# CXX or GCC
+# CXX or GCC G++
 cxx:=g++-4.3
 cxxflags:=-g
 
